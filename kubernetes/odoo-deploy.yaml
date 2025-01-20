@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: odoo
+  name: odoo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: odoo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: odoo
+    spec:
+      containers:
+      - image: odoo:18
+        name: odoo
+        env:
+        - name: HOST
+          value: postgres
+        - name: PORT
+          value: "5432"
+        - name: USER
+          value: odoo
+        - name: PASSWORD
+          value: odoo
+        ports:
+        - containerPort: 8069
+        - containerPort: 8072
+        volumeMounts:
+        - name: odoo-config
+          mountPath: /var/lib/odoo.conf
+          subPath: odoo.conf
+      volumes:
+      - name: odoo-config
+        configMap:
+          name: odoo-config
+status: {}

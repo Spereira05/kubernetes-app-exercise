@@ -13,9 +13,9 @@ This exercise demonstrates how to deploy an Odoo application (see what this is [
 - Clone the repository containing the Odoo application project.
 - Create the following Kubernetes objects: a. Deployment for Odoo
     - Service to expose Odoo
-    - ConfigMap for PostgreSQL configuration
+    - ConfigMap for PostgreSQL configuration - X
     - Deployment for PostgreSQL
-    - Ingress configured to make application able to be connected via HTTPS (Certificates are also needed here)
+    - Ingress configured to make application able to be connected via HTTPS (Certificates are also needed here)s
       - You will need to adapt `/etc/hosts` for the domain of your choice
     - Ensure your Kubernetes objects adhere to the following requirements:
       - Use the official Odoo image
